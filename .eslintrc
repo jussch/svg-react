@@ -1,5 +1,13 @@
 {
+  "parser": "babel-eslint",
   "extends": "airbnb/base",
+  "plugins": [
+    "react"
+  ],
+  "ecmaFeatures": {
+    "jsx": true,
+    "modules": true
+  },
   "rules": {
     "no-use-before-define": "off",
     "func-names": "off",
@@ -9,6 +17,7 @@
   },
   "env": {
     "mocha": true,
-    "node": true
+    "node": true,
+    "browser": true
   }
 }

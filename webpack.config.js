@@ -16,7 +16,7 @@ module.exports = {
   },
 
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'assets'),
     publicPath: '/assets/',
     filename: '[name].js',
   },
@@ -30,7 +30,7 @@ module.exports = {
 
   module: {
     loaders: [
-      { test: /\.js$/, loader: 'react-hot!babel-loader?cacheDirectory,presets=2015,react', exclude: /(node_modules|vendor)/ },
+      { test: /\.js$/, loader: 'react-hot!babel-loader?cacheDirectory,presets[]=2015,presets[]=react', exclude: /(node_modules|vendor)/ },
       { test: /\.css$/, loader: 'style-loader!css-loader' },
       { test: /\.scss$/, loader: 'style-loader!css-loader!sass-loader' },
       { test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'url-loader?limit=10000&mimetype=application/font-woff' },
