@@ -1,0 +1,38 @@
+@import './colors';
+
+.svg-editor {
+  padding: 20px;
+  min-height: 200px;
+  h1 {
+    font-size: 200%;
+  }
+}
+
+.svg-container {
+  border: 1px solid $kennedy;
+  border-radius: 5px;
+  box-shadow: 0 2px lighten($kennedy, 10%);
+  min-height: 200px;
+  margin-bottom: 20px;
+}
+
+.svg-editor-actions {
+  button {
+    position: relative;
+    background: $sweet;
+    color: $agents;
+    border: 1px solid $kennedy;
+    border-radius: 5px;
+    padding: 6px 12px;
+    cursor: pointer;
+    box-shadow: 0 2px lighten($kennedy, 10%);
+    &:hover {
+      background: darken($sweet, 5%);
+    }
+    &:active {
+      background: darken($sweet, 10%);
+      top: 2px;
+      box-shadow: 0 0 lighten($kennedy, 10%);
+    }
+  }
+}

@@ -9,7 +9,8 @@ import React, {
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Main from '../components/Main';
-/* Populated by react-webpack-redux:reducer */
+import { addShape, moveShape } from '../actions/shape_actions';
+
 class App extends Component {
   render() {
     return (
@@ -24,9 +25,9 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  /* Populated by react-webpack-redux:action */
   const actions = {
-
+    addShape,
+    moveShape,
   };
 
   return { actions: bindActionCreators(actions, dispatch) };

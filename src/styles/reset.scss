@@ -1,3 +1,5 @@
+@import './colors';
+
 div, span, h1, h2, h3, h4, h5, h6, li, ul, ol, button, figure, main, header, body, html, a, abbr,
 svg {
   padding: 0;
@@ -8,8 +10,21 @@ svg {
   background: transparent;
   list-style: none;
   font-size: 14px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 * {
   box-sizing: border-box;
+}
+
+body {
+  background: $agents;
+  padding: 20px;
+}
+
+#app {
+  background: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  border: 1px solid $kennedy;
 }

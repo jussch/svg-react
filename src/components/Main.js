@@ -3,12 +3,13 @@
  */
 
 import React, { Component } from 'react';
+import SVGEditor from './SVGEditor';
 
 class Main extends Component {
   render() {
     return (
       <div>
-        This is the main!
+        <SVGEditor {...this.props} />
       </div>
     );
   }
