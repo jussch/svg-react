@@ -12,6 +12,7 @@ class SVGEditor extends Component {
 
     // Bind here to avoid re-rendering.
     this.handleAddShape = this.handleAddShape.bind(this);
+    this.handleSelectShape = this.handleSelectShape.bind(this);
   }
 
   handleAddShape(e) {
@@ -19,11 +20,26 @@ class SVGEditor extends Component {
     this.props.actions.addShape({ type: 'rect' });
   }
 
+  handleSelectShape({ event, id }) {
+    let currX = event.pageX;
+    let currY = event.pageY;
+    window.addEventListener('mousemove', this._moveShape = (e) => {
+      this.props.actions.moveShape({ x: e.pageX - currX, y: e.pageY - currY, id });
+      currX = e.pageX;
+      currY = e.pageY;
+    });
+
+    window.addEventListener('mouseup', this._mouseUp = () => {
+      window.removeEventListener('mousemove', this._moveShape);
+      window.removeEventListener('mouseup', this._mouseUp);
+    });
+  }
+
   render() {
     const shapes = this.props.shapes;
     const shapeEls = shapes.map((shape, id) => {
       if (shape.type === 'rect') {
-        return <Rectangle shape={shape} key={id} />;
+        return <Rectangle shape={shape} key={id} onSelect={this.handleSelectShape} />;
       }
     }).toArray();
 

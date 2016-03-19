@@ -9,8 +9,15 @@ const initialState = new Map({});
 
 export default function shapesReducer(state = initialState, action) {
   switch (action.type) {
-    case ADD_SHAPE:
-      return state.set(_.uniqueId('shape_'), (new Shape()).set('type', action.shapeType));
+    case ADD_SHAPE: {
+      const id = _.uniqueId('shape_');
+      const shape = new Shape()
+        .set('id', id)
+        .set('type', action.shapeType);
+
+      return state.set(id, shape);
+    }
+
     case MOVE_SHAPE:
       return state.update(action.id, (shape) => {
         return shape.update('x', x => x + action.x).update('y', y => y + action.y);
@@ -25,6 +32,7 @@ const Shape = new Record({
   y: 20,
   width: 100,
   height: 100,
+  id: null,
   type: 'rect',
   style: new Map({
     fill: '#ccc',
