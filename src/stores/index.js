@@ -8,8 +8,8 @@ const reducers = require('../reducers');
 module.exports = function(initialState) {
   const store = redux.createStore(
     reducers,
-    redux.applyMiddleware(thunk),
-    initialState
+    initialState,
+    redux.applyMiddleware(thunk)
   );
 
   if (module.hot) {

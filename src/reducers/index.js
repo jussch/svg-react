@@ -5,7 +5,7 @@
 import { combineReducers } from 'redux';
 
 const reducers = {
-
+  cat(a) { return a || {}; },
 };
 
 module.exports = combineReducers(reducers);
