@@ -1,16 +1,17 @@
 /**
  * Created by Justin on 2016-03-18.
  */
-const redux = require('redux');
-const thunk = require('redux-thunk');
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 const reducers = require('../reducers');
 
 module.exports = function(initialState) {
-  const store = redux.createStore(
+  const store = createStore(
     reducers,
     initialState,
-    redux.applyMiddleware(thunk)
+    applyMiddleware(thunk)
   );
+
 
   if (module.hot) {
     // Enable Webpack hot module replacement for reducers

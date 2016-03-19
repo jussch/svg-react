@@ -3,9 +3,10 @@
  */
 
 import { combineReducers } from 'redux';
+import shapesReducer from './shapes';
 
 const reducers = {
-  cat(a) { return a || {}; },
+  shapes: shapesReducer,
 };
 
 module.exports = combineReducers(reducers);
